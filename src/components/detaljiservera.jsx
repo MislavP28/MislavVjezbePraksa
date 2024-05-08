@@ -23,10 +23,10 @@ function ServerDetails() {
         }
 
         fetchData();
-        // console.log("Fetch Effect", data);
+        
     }, []);
 
-        // console.log("Fetch Effect after", data);
+      
 
     return (
         <>
