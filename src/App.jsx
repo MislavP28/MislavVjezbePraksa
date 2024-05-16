@@ -1,7 +1,7 @@
 import { Outlet, Route, Routes } from 'react-router-dom'
 import './App.css'
-import Homepage from './components/HomePage'
-import ServerDetails from './components/detaljiservera'
+import { HomePage } from '../src/Pages/HomePage/HomePage'
+import { ServerDetails } from '../src/Pages/ServerDetails/ServerDetails'
 
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
       <>
       <Routes>
         <Route path="/" element={<Outlet/>}>
-          <Route index element={<Homepage/>}/>
+          <Route index element={<HomePage/>}/>
           <Route path='/:server/:id' element={<ServerDetails />} />
 
         </Route>
