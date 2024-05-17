@@ -44,7 +44,7 @@ const columns = [
 
     // Props šalje data za novi Array kojim se puni tablica, dodavanje key varijable zbog potrebe .map funkcije. Provjera postojanja svih potrebnih podataka.
     const newArray = envID && data &&
-        data.map(item => ({
+        data[envID].environments.map(item => ({
             id: item.id,
             application_id: item.application_id,
             name: item.name,

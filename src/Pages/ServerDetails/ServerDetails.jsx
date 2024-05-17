@@ -4,6 +4,7 @@ import { DetailsComponent } from "../../../src/Layout/LayoutComponents/DetailsCo
 import { ButtonComponent } from "../../components/ButtonComponent/ButtonComponent";
 import "../../assets/CSS/server-details.scss";
 import { useFetch } from "../../Hooks/UseFetch/";
+import { statusIndicator } from "../../Utils/Utils";
 
 
 function ServerDetails({title, text}) {
