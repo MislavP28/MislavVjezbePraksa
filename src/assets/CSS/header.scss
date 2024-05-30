@@ -1,6 +1,7 @@
 .header {
     height: 20vh;
     min-height: 100px;
+    background-color: #570987;
 
     .banner {
         height: 65%;
@@ -8,6 +9,11 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        
+    }
+    .logo img {
+        height: 120%;
+        width: 100px;
     }
 
     .nav {
@@ -17,5 +23,6 @@
         justify-content: center;
         align-items: center;
         text-align: center;
+        background-color: #7D0DC3;
     }    
 }

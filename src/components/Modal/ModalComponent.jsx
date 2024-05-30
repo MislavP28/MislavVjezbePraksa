@@ -32,9 +32,7 @@ return(
             title={title} 
             open={isModalOpen}
             onCancel={handleCancel}
-            footer={[
-                <ButtonComponent key="ok" type="Close window" onClick={handleOk}/>
-            ]}>
+            footer={null}>
 
                 <p> {text} </p>
                 <div className='modal'>

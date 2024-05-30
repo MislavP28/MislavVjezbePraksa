@@ -1,20 +1,22 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext,useMemo, useEffect, useState } from 'react';
 import { DataForContext } from '../../Pages/HomePage/HomePage';
 import { DropdownRender } from './DropdownRender';
 import { dropdownDataParser } from '../../../src/Utils/Utils';
 import "./../../assets/CSS/dropdown.scss"
 
 function DropdownComponent() {
-    const [selectedEnv, setSelectedEnv] = useState("");
-    const { data, setEnvID } = useContext(DataForContext);
-
+    const { data, setEnvID, searchParams, setSearchParams } = useContext(DataForContext);
+    const envParams = searchParams.get("env");
+    const [selectedEnv, setSelectedEnv] = useState(envParams);
+    const items = useMemo(() => dropdownDataParser(data), [data]);
+    
     // Funkcija vraća Dropdownu iskoristiv array od data
-    const items = dropdownDataParser(data)
+    //const items = dropdownDataParser(data)
 
     // useEffect poziva update funkciju i postavlja početnu tablicu na Production Environment
     useEffect(() => {
         data.length > 0 &&
-            updateSelectedEnv(items[0].key, items[0].label);
+            updateSelectedEnv(items[envParams].key, items[envParams].label);
     }, [data])
 
     // Handler funkcija za onClick koja poziva da se funkcija ažurira
@@ -27,6 +29,7 @@ function DropdownComponent() {
     const updateSelectedEnv = (key, label) => {
         setSelectedEnv("Selected: " + label);
         setEnvID(key);
+        setSearchParams({env: key});
     };
 
 
@@ -36,7 +39,7 @@ function DropdownComponent() {
                 items,
                 selectable: true,
                 onClick: handleSelectedEnv,
-                defaultSelectedKeys: "0",
+                defaultSelectedKeys: [envParams],
             }}
             selectedEnv={selectedEnv}
         />
